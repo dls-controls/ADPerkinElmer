@@ -2,6 +2,12 @@
 # Brian Tieman
 # July 23, 2008
 
+#% macro, P, Device Prefix
+#% macro, R, Device Suffix
+#% macro, PORT, Asyn port name
+#% macro, ADDR, Asyn port address
+#% macro, TIMEOUT, Asyn port timeout
+
 include "ADBase.template"
 
 ######################
