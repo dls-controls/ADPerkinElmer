@@ -14,7 +14,7 @@ class perkinElmer(AsynPort):
     _SpecificTemplate = _perkinElmerTemplate
     UniqueName = "PORT"
     
-    def __init__(self, PORT, BUFFERS = 50, MEMORY = 0, **args):
+    def __init__(self, PORT, IDType, IDValue = "", BUFFERS = 50, MEMORY = 0, **args):
         # Init the superclass
         self.__super.__init__(PORT)
         self.__dict__.update(locals())
@@ -23,6 +23,13 @@ class perkinElmer(AsynPort):
     # __init__ arguments
     ArgInfo = _SpecificTemplate.ArgInfo + makeArgInfo(__init__,
         PORT = Simple('Port name for the detector', str),
+        IDType = Choice('Type of system ID in IDValue',
+                        [0,1,2,3],
+                        ["0.Frame grabber card, leave IDValue empty",
+                         "1.GigE detector, IDValue = IP address",
+                         "2.GigE detector, IDValue = MAC address lower-case",
+                         "3.GigE detector, IDValue = detector name"]),
+        IDValue = Simple('System ID', str),
         BUFFERS = Simple('Maximum number of NDArray buffers to be created for '
             'plugin callbacks', int),
         MEMORY = Simple('Max memory to allocate, should be maxw*maxh*nbuffer '
@@ -44,6 +51,6 @@ class perkinElmer(AsynPort):
     def Initialise(self):
         print '#PerkinElmerConfig(const char *portName, int IDType, const char* IDValue, \
             int maxBuffers, size_t maxMemory, int priority, int stackSize )'
-        print 'PerkinElmerConfig("%(PORT)s", 0, "", %(BUFFERS)d, ' \
+        print 'PerkinElmerConfig("%(PORT)s", %(IDType)s, \"%(IDValue)s\", %(BUFFERS)d, ' \
             '%(MEMORY)d, 0, 0)' % self.__dict__
 
