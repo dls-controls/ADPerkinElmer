@@ -8,6 +8,9 @@
 #% macro, ADDR, Asyn port address
 #% macro, TIMEOUT, Asyn port timeout
 
+# This associates the template with an edm screen
+# % gui, $(PORT), edmtab, PerkinElmer.edl, P=$(P),R=$(R)
+
 include "ADBase.template"
 
 ######################
