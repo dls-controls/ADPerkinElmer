@@ -18,6 +18,7 @@ LIB_INSTALLS_WIN32    += ../os/windows-x64/XISL.lib
 BIN_INSTALLS_WIN32    += ../os/windows-x64/XISL.dll
 BIN_INSTALLS_WIN32    += ../os/windows-x64/gbif64.dll
 BIN_INSTALLS_WIN32    += ../os/windows-x64/libxml2_x64.dll
+BIN_INSTALLS_WIN32    += ../os/windows-x64/wpe200_64.dll
 
 endif
 
