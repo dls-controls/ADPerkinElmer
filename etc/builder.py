@@ -41,11 +41,10 @@ class perkinElmer(AsynPort):
 
     # Copy the libraries
     MakefileStringList = \
-            [ 
+            [
                 'USR_CFLAGS=   /DWINVER=0x0502 /D_WIN32_WINNT=0x0502 /D_WIN32_WINDOWS=0x0502',
                 'USR_CXXFLAGS=   /DWINVER=0x0502 /D_WIN32_WINNT=0x0502 /D_WIN32_WINDOWS=0x0502',
-                'USR_CPPFLAGS=   /DWINVER=0x0502 /D_WIN32_WINNT=0x0502 /D_WIN32_WINDOWS=0x0502',
-                'BIN_INSTALLS_WIN32 += $(ADPERKINELMER)/ADApp/perkinElmerSupport/os/windows-x64/msvcr100.dll']
+                'USR_CPPFLAGS=   /DWINVER=0x0502 /D_WIN32_WINNT=0x0502 /D_WIN32_WINDOWS=0x0502']
 
     def Initialise(self):
         print '#PerkinElmerConfig(const char *portName, int IDType, const char* IDValue, \
